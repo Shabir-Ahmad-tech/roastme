@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | RoastMe Docs</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&family=Orbitron:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=VT323&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">🔥 RoastMe</div>
+        <div class="nav-links">
+            <a href="index.html">Roast</a>
+            <a href="about.html" class="active">About & Docs</a>
+            <a href="https://github.com/Shabir-Ahmad-tech/roastme" target="_blank" style="display: flex; align-items: center; gap: 6px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.379.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                GitHub
+            </a>
+            <select id="themeSwitcher" class="theme-switcher">
+                <option value="cyberpunk">Cyberpunk</option>
+                <option value="enterprise">FAANG Enterprise</option>
+                <option value="terminal">Retro Terminal</option>
+                <option value="clown">Clown Fiesta</option>
+                <option value="zen">Zen Garden</option>
+            </select>
+        </div>
+    </nav>
+
+    <div class="container docs-container">
+        <div class="card glass-panel docs-content">
+            <h1>Documentation & Philosophy</h1>
+            
+            <section>
+                <h2>What is RoastMe?</h2>
+                <p>Originally designed just for code, this AI tool has evolved into a universal, ruthless critic. Paste in your code, an email draft, a bad startup idea, or your dating app bio. Our AI will provide hilariously savage feedback—and then actually help you fix it.</p>
+            </section>
+
+            <section>
+                <h2>How it Works</h2>
+                <ol>
+                    <li><strong>Paste your text:</strong> Drop your code, email, or essay into the "Raw Meat" section.</li>
+                    <li><strong>Ignite the Grill:</strong> The app streams your input to a frontier AI model via OpenRouter.</li>
+                    <li><strong>Get Roasted:</strong> The AI identifies the biggest flaws, roasts you mercilessly, provides the correct rewritten version, and gives you a professional tip.</li>
+                </ol>
+            </section>
+
+            <section>
+                <h2>Configuration (For Developers)</h2>
+                <p>If you downloaded this source code, you need to set your own API key.</p>
+                <div class="code-block-mockup">
+                    <code>
+// Open js/app.js and update the CONFIG object:<br>
+const CONFIG = {<br>
+&nbsp;&nbsp;apiKey: "sk-or-...", // Your OpenRouter API Key<br>
+&nbsp;&nbsp;model: "google/gemma-7b-it" // Or any model you prefer<br>
+};
+                    </code>
+                </div>
+            </section>
+
+            <section>
+                <h2>The AI Persona</h2>
+                <p>We specifically engineered the AI prompt to avoid generic "AI speak" (like "As an AI language model..."). Instead, it responds directly in a strict format:</p>
+                <ul>
+                    <li>🔥 <strong>The Roast:</strong> A punchy critique of your code.</li>
+                    <li>✅ <strong>The Fix:</strong> A syntax-highlighted code block showing the right way.</li>
+                    <li>💡 <strong>Pro Tip:</strong> A sarcastic but genuinely useful best practice.</li>
+                    <li>💀 <strong>Score:</strong> A rating out of 100 on the garbage-fire scale.</li>
+                </ul>
+            </section>
+        </div>
+    </div>
+
+</body>
+</html>
