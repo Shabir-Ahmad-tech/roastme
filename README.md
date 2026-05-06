@@ -1,63 +1,71 @@
+# 🔥 RoastMe: The Premium Roast Engine
+
 <div align="center">
-  <h1>🔥 RoastMe</h1>
-  <p><strong>The Premium AI-Powered Roast & Glow-Up Engine for Literally Anything</strong></p>
-  <p>
-    <a href="#features">Features</a> •
-    <a href="#quick-start">Quick Start</a> •
-    <a href="#configuration">Configuration</a> •
-    <a href="#the-themes">The Themes</a>
-  </p>
+  <img src="https://img.shields.io/badge/UX-Luxury_Obsidian-gold?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/AI-Gemini_2.0_Flash-orange?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Architecture-Mobile--First-blue?style=for-the-badge" />
 </div>
+
+> **RoastMe** is a high-ticket, mobile-first roasting platform designed for those with thick skin and garbage code. Built with a "Native App" philosophy, it transforms the traditional web experience into a premium digital product.
 
 ---
 
-## 📖 Overview
-RoastMe is an enterprise-grade, zero-backend web application designed to analyze, critique, and refactor almost anything you write. Paste in your code, an email draft, a bad startup idea, or your dating app bio. Our AI will provide hilariously savage feedback—and then actually help you fix it.
+## 💎 The $100k+ Aesthetic
+This project follows strict premium design standards:
+- **Luxury Obsidian UI**: A deep, monochromatic design system with gold accents and extreme glassmorphism.
+- **Fluid Typography**: Perfectly scaled text across all devices using CSS `clamp`.
+- **Native Ergonomics**: Bottom navigation and a side-sheet settings drawer for an authentic mobile app feel.
+- **60fps Micro-interactions**: Smooth transitions and slow fade-ins for every interaction.
 
 ## ✨ Features
-- **Elite AI Persona Formulation:** Strict system prompting ensures zero AI filler ("As an AI language model..."). Just pure, actionable critique and beautiful code.
-- **Dynamic Theme Engine:** Switch instantly between three radically different CSS architectures (`Cyberpunk`, `FAANG Enterprise`, and `Retro Terminal`).
-- **Real-Time Markdown Streaming:** Server-Sent Events (SSE) stream the AI's response directly into a customized `marked.js` rendering pipeline so you can read the roast as it generates.
-- **Syntax Highlighting:** Integrated `highlight.js` with the *Tokyo Night Dark* theme ensures all refactored code blocks are beautifully formatted.
-- **Zero-Backend Architecture:** Runs entirely in the browser, communicating directly with frontier AI models via the OpenRouter API.
+- **Elite AI Personas**: Choose your executioner—from a **Senior Architect** to a **Toxic Ex** or a **Silicon Valley VC**.
+- **Savagery Levels**: Adjustable heat from "Spicy" to "Pure Evil (18+)".
+- **Luxury Verdict Certificates**: Every roast generates a unique **Case ID**. Export your failure as a high-fidelity PNG receipt.
+- **Streaming Intelligence**: Real-time markdown streaming powered by Gemini 2.0 Flash via OpenRouter.
+- **Obsidian Theme Engine**: Switch between radically different premium themes like *Cyberpunk Neon*, *FAANG Corporate*, and *Retro Terminal*.
 
-## 🎨 The Themes
-RoastMe features a robust `data-theme` CSS architecture. Switching themes instantly transforms typography, padding, borders, shadows, and color palettes.
-1. **Cyberpunk (Default):** Glitch effects, neon cyan, hot pink accents, and deep glassmorphism.
-2. **FAANG Enterprise:** Massive negative space, stark white layouts, elegant drop shadows, and clean geometric typography (`Plus Jakarta Sans`).
-3. **Retro Terminal:** Pitch black backgrounds, glowing Matrix-green text (`VT323`), inverted hover states, and brutalist flat UI design.
-4. **Clown Fiesta:** Comic Sans, chaotic yellow/orange gradients, and obnoxious rounded borders. Pure eye-bleed.
-5. **Zen Garden:** Minimalist beige, elegant serif fonts, and soft sage greens. Completely ironic for a roasting app.
+## 🛠️ Technology Stack
+- **Frontend**: Vanilla HTML5, CSS3 (Modern Flex/Grid), JavaScript (ES6+)
+- **AI Pipeline**: OpenRouter API (Gemini 2.0 Flash / GPT-4o)
+- **Formatting**: [Marked.js](https://marked.js.org/) & [Highlight.js](https://highlightjs.org/)
+- **Export Engine**: [html2canvas](https://html2canvas.hertzen.com/)
+
+---
 
 ## 🚀 Quick Start
-Since RoastMe is a client-side app, getting started takes seconds.
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/Shabir-Ahmad-tech/roastme.git
-   ```
-2. Open `index.html` in your browser or serve it via a local development server (e.g., VS Code Live Server).
+### 1. Clone & Open
+```bash
+git clone https://github.com/Shabir-Ahmad-tech/roastme.git
+cd roastme
+```
+Simply open `index.html` in any modern browser.
 
-## ⚙️ Configuration
-You must provide your own OpenRouter API key to communicate with the AI models.
-
-Open `js/app.js` and locate the `CONFIG` object at the top of the file:
+### 2. Configure API Key
+Open `js/config.js` and add your OpenRouter API key:
 ```javascript
-const CONFIG = {
-    // ENTER YOUR OPENROUTER API KEY HERE
-    apiKey: "sk-or-your-api-key-here",
-    
-    // CHOOSE YOUR MODEL HERE
-    // e.g. "google/gemma-7b-it", "anthropic/claude-3-sonnet-20240229"
-    model: "openrouter/owl-alpha" 
+export const ROASTME_CONFIG = {
+    apiKey: "sk-or-your-key-here",
+    model: "google/gemini-2.0-flash-exp:free"
 };
 ```
 
-## 🛠️ Technology Stack
-- **Core:** Vanilla HTML5, CSS3, JavaScript (ES6+)
-- **Markdown Parsing:** [Marked.js](https://marked.js.org/)
-- **Syntax Highlighting:** [Highlight.js](https://highlightjs.org/)
-- **API Provider:** [OpenRouter](https://openrouter.ai/)
+---
 
-## 📜 License
-Distributed under the MIT License. Feel free to fork, modify, and roast your own code.
+## 🎨 Themes Available
+1. **Midnight Obsidian**: The default luxury experience.
+2. **Cyberpunk Neon**: High-contrast, glitch-inspired interface.
+3. **FAANG Corporate**: Minimalist, stark white, and painfully professional.
+4. **Retro Terminal**: For the hackers and terminal dwellers.
+5. **Zen Garden**: A calm environment for a brutal roast.
+
+---
+
+## 📜 Project Manifesto
+RoastMe isn't just an app; it's a digital reality check. In a world of "nice" AI assistants, we built something with a backbone. It’s a study in **Premium UI/UX** and **Vibe Coding**—proving that even a tool designed for insults can look like a six-figure product.
+
+---
+
+### 👨‍💻 Created By
+**Shabir Ahmad**  
+*Premium Web Developer & UI/UX Architect*
