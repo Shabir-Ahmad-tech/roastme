@@ -31,6 +31,7 @@ This project follows strict premium design standards:
 - **Export Engine**: [html2canvas](https://html2canvas.hertzen.com/)
 
 ---
+**Demo** [Watch live demo] (https://roast-me.netlify.app/)
 
 ## 🚀 Quick Start
 
@@ -44,9 +45,9 @@ Simply open `index.html` in any modern browser.
 ### 2. Configure API Key
 Open `js/config.js` and add your OpenRouter API key:
 ```javascript
-export const ROASTME_CONFIG = {
+const ROASTME_CONFIG = {
     apiKey: "sk-or-your-key-here",
-    model: "google/gemini-2.0-flash-exp:free"
+    model: "openrouter/free"
 };
 ```
 

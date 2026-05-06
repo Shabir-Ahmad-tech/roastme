@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 1. CONFIGURATION ---
     const CONFIG = {
         apiKey: typeof ROASTME_CONFIG !== 'undefined' ? ROASTME_CONFIG.apiKey : "",
-        model: "google/gemini-2.0-flash-001",
+        model: typeof ROASTME_CONFIG !== 'undefined' && ROASTME_CONFIG.model ? ROASTME_CONFIG.model : "openrouter/free",
         savageryMap: { 1: 'Tepid', 2: 'Spicy', 3: 'Nuclear' }
     };
 
