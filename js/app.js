@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // --- 1. CONFIGURATION ---
     const CONFIG = {
-        apiKey: typeof ROASTME_CONFIG !== 'undefined' ? ROASTME_CONFIG.apiKey : "",
-        model: typeof ROASTME_CONFIG !== 'undefined' && ROASTME_CONFIG.model ? ROASTME_CONFIG.model : "x-ai/grok-4.1-fast:free",
+        apiKey: localStorage.getItem('roastme_key') || (typeof ROASTME_CONFIG !== 'undefined' ? ROASTME_CONFIG.apiKey : ""),
+        model: typeof ROASTME_CONFIG !== 'undefined' && ROASTME_CONFIG.model ? ROASTME_CONFIG.model : "google/gemini-2.0-flash-exp:free",
         savageryMap: { 1: 'Tepid', 2: 'Spicy', 3: 'Nuclear' }
     };
 
@@ -58,7 +58,8 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Actions
         downloadBtn: document.getElementById('downloadBtn'),
-        copyBtn: document.getElementById('copyBtn')
+        copyBtn: document.getElementById('copyBtn'),
+        apiKeyInput: document.getElementById('apiKeyInput')
     };
 
     // --- 4. PERSONA PROMPTS ---
@@ -156,16 +157,28 @@ document.addEventListener('DOMContentLoaded', () => {
             `\n\nSAVAGERY: ${savageryText}\nINSTRUCTION: ${intensityInstruction}${chaos}` +
             `\n\nSTRICT MARKDOWN FORMAT:\n### 🔥 The Roast\n### ✅ The Glow-Up\n### 💡 Parting Shot\n### 💀 Emotional Damage: [X/100]`;
 
+        console.log(`[RoastMe] Igniting grill with model: ${CONFIG.model}`);
+        
+        if (!CONFIG.apiKey || CONFIG.apiKey.length < 10) {
+            state.app = 'error';
+            updateUI({ error: 'System Error: API Key missing. Please set it in the Settings Drawer.' });
+            return;
+        }
+
         state.app = 'loading';
         state.data.buffer = '';
         updateUI();
 
         try {
+            const referer = window.location.protocol === 'file:' ? 'https://roastme.ai' : window.location.href;
+            
             const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
                 method: "POST",
                 headers: {
                     "Authorization": `Bearer ${CONFIG.apiKey}`,
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "HTTP-Referer": referer,
+                    "X-Title": "RoastMe Premium"
                 },
                 body: JSON.stringify({
                     "model": CONFIG.model,
@@ -177,10 +190,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 })
             });
 
-            if (!response.ok) throw new Error(`API Error: ${response.statusText}`);
+            if (!response.ok) {
+                const rawError = await response.text();
+                let errorMessage = `Error ${response.status}: ${response.statusText}`;
+                try {
+                    const errorJson = JSON.parse(rawError);
+                    errorMessage = errorJson.error?.message || errorMessage;
+                } catch (e) {
+                    errorMessage = rawError || errorMessage;
+                }
+                throw new Error(errorMessage);
+            }
             await streamResponse(response);
 
         } catch (error) {
+            console.error('[RoastMe] API Failure:', error);
             state.app = 'error';
             updateUI({ error: error.message });
         }
@@ -270,6 +294,13 @@ document.addEventListener('DOMContentLoaded', () => {
         // Settings Listeners
         elements.themeSwitcher.addEventListener('change', (e) => applyTheme(e.target.value));
         
+        elements.apiKeyInput.value = CONFIG.apiKey;
+        elements.apiKeyInput.addEventListener('input', (e) => {
+            const newKey = e.target.value.trim();
+            CONFIG.apiKey = newKey;
+            localStorage.setItem('roastme_key', newKey);
+        });
+
         elements.savagerySlider.addEventListener('input', (e) => {
             state.data.savagery = parseInt(e.target.value);
             elements.savageryLabel.textContent = CONFIG.savageryMap[state.data.savagery];
