@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 1. CONFIGURATION ---
     const CONFIG = {
         apiKey: typeof ROASTME_CONFIG !== 'undefined' ? ROASTME_CONFIG.apiKey : "",
-        model: typeof ROASTME_CONFIG !== 'undefined' && ROASTME_CONFIG.model ? ROASTME_CONFIG.model : "meta-llama/llama-3.1-8b-instruct:free",
+        model: typeof ROASTME_CONFIG !== 'undefined' && ROASTME_CONFIG.model ? ROASTME_CONFIG.model : "x-ai/grok-4.1-fast:free",
         savageryMap: { 1: 'Tepid', 2: 'Spicy', 3: 'Nuclear' }
     };
 
